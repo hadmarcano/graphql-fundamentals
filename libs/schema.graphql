@@ -1,0 +1,76 @@
+# TYPE LEVEL VALIDATION
+enum Level {
+  principiante
+  intermedio
+  avanzado
+}
+# TYPES
+type Course {
+  _id: ID!
+  title: String!
+  teacher: String
+  description: String!
+  topic: String
+  level: Level
+  people: [Student]
+}
+
+type Student {
+  _id: ID!
+  name: String!
+  email: String!
+}
+
+input CourseInput {
+  title: String!
+  teacher: String
+  description: String!
+  level: Level
+  topic: String
+}
+
+input CourseEditInput {
+  title: String
+  teacher: String
+  description: String
+  level: Level
+  topic: String
+}
+
+input StudentInput {
+  name: String!
+  email: String!
+}
+
+input StudentEditInput {
+  name: String
+  email: String
+}
+
+# QUERIES
+type Query {
+  # Return all courses
+  getCourses: [Course]
+
+  # Return one course
+  getCourse(_id: ID!): Course
+  # Return all students
+  getStudents: [Student]
+
+  # Return one student
+  getStudent(_id: ID!): Student
+}
+
+# MUTATIONS
+type Mutation {
+  # Create Course
+  createCourse(input: CourseInput!): Course
+  # Edit Course
+  editCourse(_id: ID!, input: CourseEditInput!): Course
+  # Create Student
+  createStudent(input: StudentInput!): Student
+  # Edit Student
+  editStudent(_id: ID!, input: StudentEditInput!): Student
+  # Add Student
+  addStudent(course_id: ID!, student_id: ID!): Course
+}

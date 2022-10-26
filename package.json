@@ -1,0 +1,25 @@
+{
+  "name": "grahql-fundamentals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e js,graphql index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-tools/schema": "^9.0.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.3.0",
+    "mongodb": "^4.10.0",
+    "mongoose": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
